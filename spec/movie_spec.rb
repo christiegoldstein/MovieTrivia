@@ -1,4 +1,5 @@
 require_relative("../lib/movie.rb")
+require("imdb")
 
 RSpec.describe Movie do
   let :movie do
@@ -7,24 +8,14 @@ RSpec.describe Movie do
 
 
   it "gets 9 posters" do
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    @search_movie = Imdb::Search.new("funny")
-    expect( movie.find_poster.length ).to eq(9)
+    the_search = Imdb::Search.new("funny")
+
+    all_movies = the_search.movies.each_slice(20).to_a
+
+    movies = all_movies[0]
+
+    movie.find_poster(movies)
+    expect( movie.movies_with_posters.length ).to eq(9)
   end
 
 end
