@@ -3,8 +3,8 @@
 
 	<h2>Here is the list of movies we found using your key term.</h2>
 
-	<% @movies.each do |movie| %>
-		<img src = <%= movie.poster %>
+	<% @display.each do |movie| %>
+		<img src = <%= movie.poster %> height="200" width="100"   >
 	<% end %>
 
 </center>
