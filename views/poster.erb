@@ -1,10 +1,24 @@
+<body>
 <center>
+
 	<h1>Movie Trivia</h1>
 
-	<h2>Here is the list of movies we found using your key term.</h2>
+	<h2>What movie was released in <%= @answer.year%>?</h2>
+	<h4>Choose a movie from the list below:</h4>
 
 	<% @display.each do |movie| %>
-		<img src = <%= movie.poster %> height="200" width="100"   >
-	<% end %>
+		<img src = <%= movie.poster %> height="210" width="125">
+	
+		<% if movie.year == @answer.year %>
+			<button type="submit" onclick="alert('Correct movie selected! You rock!')">
+	    		My Answer
+	 		</button>
+		<% else %>
+			<button type="submit" onclick="alert('Incorrect movie selected! You suck!')">
+	    		My Answer
+	 		</button>
+	 	<% end %>
 
+	<% end %>
 </center>
+</body>
