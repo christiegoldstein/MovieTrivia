@@ -16,7 +16,9 @@ post "/movie_list" do
 
 	all_movies = the_search.movies.each_slice(20).to_a
 
-	@movies = all_movies[0]
+	movie.find_poster(all_movies[0])
+
+	@display = movie.movies_with_posters
 
 	erb(:poster)
 end
