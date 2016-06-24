@@ -19,6 +19,7 @@ post "/movie_list" do
 	movie.find_poster(all_movies[0])
 
 	@display = movie.movies_with_posters
+	@answer = @display.shuffle.sample
 
 	erb(:poster)
 end
