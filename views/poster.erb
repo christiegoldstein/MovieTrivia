@@ -4,19 +4,23 @@
 	<h1>Movie Trivia</h1>
 
 	<h2>What movie was released in <%= @answer.year%>?</h2>
-	<h4>Choose a movie from the list below:</h4>
+	<h4>Click on a movie below to answer:</h4>
 
 	<% @display.each do |movie| %>
-		<img src = <%= movie.poster %> height="210" width="125">
+		<!-- <img src = <%= movie.poster %> height="210" width="125"> -->
 	
 		<% if movie.year == @answer.year %>
-			<button type="submit" onclick="alert('Correct movie selected! You rock!')">
+
+			<img src = <%= movie.poster %> height="210" width="125" onclick="alert('Correct movie selected! You rock!')">
+			<!-- <button type="submit" onclick="alert('Correct movie selected! You rock!')">
 	    		My Answer
-	 		</button>
+	 		</button> -->
 		<% else %>
-			<button type="submit" onclick="alert('Incorrect movie selected! You suck!')">
+
+			<img src = <%= movie.poster %> height="210" width="125" onclick="alert('Incorrect movie selected! You suck!')">
+			<!-- <button type="submit" onclick="alert('Incorrect movie selected! You suck!')">
 	    		My Answer
-	 		</button>
+	 		</button> -->
 	 	<% end %>
 
 	<% end %>
